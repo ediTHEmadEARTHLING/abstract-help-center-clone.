@@ -1,0 +1,246 @@
+/* Universal Reset and Box Model */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Makes managing widths and padding much easier */
+    font-family: Arial, sans-serif; /* A simple starting font */
+}
+
+/* Basic Body Styling */
+body {
+    background-color: #ffffff; /* Use a white background */
+    color: #333; /* Dark text for readability */
+}/* --- Header Styling (Logo and Navigation) --- */
+header {
+    display: flex; /* Aligns items horizontally */
+    justify-content: space-between; /* Pushes content to the far ends */
+    align-items: center; /* Vertically centers items */
+    padding: 20px 40px; /* Space around the header content */
+    border-bottom: 1px solid #ccc; /* A subtle divider line */
+}
+
+header h1 {
+    font-size: 24px;
+    color: #4C5975; /* Using the same dark blue/gray as the search button */
+    font-weight: 700;
+}
+
+header nav a {
+    color: #4C5975; /* Blue/gray link color */
+    text-decoration: none; /* Removes the underline from the link */
+    margin-right: 20px;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+header nav a:hover {
+    color: #38435a;
+}
+
+header nav button {
+    background-color: transparent; /* No background color */
+    color: #4C5975; /* Blue/gray text color */
+    border: 1px solid #4C5975; /* Blue/gray border */
+    padding: 8px 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+header nav button:hover {
+    background-color: #4C5975;
+    color: white;
+}/* --- Hero Section Styling (The Big Search Bar Area) --- */
+.hero {
+    /* Abstract's background is a light gray */
+    background-color: #DADADA; 
+    text-align: center;
+    padding: 100px 20px; /* Adds space above and below the content */
+}
+
+.hero h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.search-bar {
+    display: flex; /* Helps align the input and button */
+    justify-content: center; /* Centers the search bar block */
+    max-width: 700px; /* Limits the width for a clean look */
+    margin: 0 auto; /* Centers the whole component */
+    height: 50px; /* Sets a standard height */
+    border: 1px solid #717171;
+    border-radius: 4px; /* Slightly rounded corners */
+    overflow: hidden; /* Ensures borders look clean */
+    background-color: white; /* The bar itself is white */
+}
+
+.search-bar input[type="text"] {
+    flex-grow: 1; /* Makes the input field take up all available space */
+    border: none;
+    padding: 0 15px;
+    font-size: 16px;
+    outline: none; /* Removes the blue outline on focus */
+}
+
+.search-bar button {
+    background-color: #4C5975; /* A deep blue/gray color */
+    color: white;
+    border: none;
+    padding: 0 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #38435a; /* Slightly darker on hover */
+}/* --- Main Content Grid Styling --- */
+main {
+    padding: 60px 40px; /* Padding for the entire main section */
+    max-width: 1200px; /* Limits the overall width of the content */
+    margin: 0 auto; /* Centers the main content block */
+}
+
+.articles-grid {
+    display: grid;
+    /* Creates a 3-column layout, each column taking equal space */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Space between the grid items (cards) */
+}
+
+/* --- Individual Card Styling --- */
+.card {
+    border: 1px solid #ccc; /* Light border around the card */
+    border-radius: 6px; /* Slightly rounded corners */
+    padding: 40px;
+    background-color: #f7f7f7; /* Very light gray background for the cards */
+    transition: box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+    min-height: 200px; /* Ensures all cards have a uniform height */
+    display: flex;
+    flex-direction: column; /* Stacks the title and link vertically */
+    justify-content: space-between; /* Pushes the title up and link down */
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds a shadow on hover */
+    transform: translateY(-2px); /* Lifts the card slightly */
+}.card h3 {
+    font-size: 20px;
+    color: #4C5975;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #000000; /* Use black for the "Learn More" link */
+    font-weight: bold;
+}
+/* --- Footer Styling --- */
+footer {
+    background-color: #000000; /* Black background */
+    color: white;
+    padding: 60px 40px 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px; /* Aligns with the main content width */
+    margin: 0 auto 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333; /* Separates the links from copyright */
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.footer-column ul {
+    list-style: none; /* Removes bullet points */
+}
+
+.footer-column ul li a {
+    color: #dadada;
+    text-decoration: none;
+    line-height: 1.8; /* Adds spacing between links */
+    font-size: 15px;
+    display: block; /* Makes the entire line clickable */
+}
+
+.footer-column ul li a:hover {
+    color: white;
+}
+
+.copyright-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #888;
+    text-align: right;
+}
+/* --- Media Queries for Responsiveness --- */
+
+/* Styles for Tablets (Screen width up to 1024px) */
+@media (max-width: 1024px) {
+    .articles-grid {
+        /* Changes the grid from 3 columns to 2 columns */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-content {
+        /* Allows footer columns to wrap */
+        flex-wrap: wrap; 
+    }
+    
+    .footer-column {
+        /* Each column takes up 50% width on tablet */
+        width: 50%;
+        margin-bottom: 30px; 
+    }
+}
+
+/* Styles for Mobile Phones (Screen width up to 768px) */
+@media (max-width: 768px) {
+    header {
+        /* Reduces padding on the sides */
+        padding: 15px 20px;
+    }
+
+    header nav {
+        /* Hides the "Sign In" button on very small screens (common practice) */
+        display: none; 
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+    
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    .articles-grid {
+        /* Changes the grid from 2 columns to 1 column */
+        grid-template-columns: 1fr; 
+    }
+
+    .footer-content {
+        /* Stacks all columns vertically on mobile */
+        flex-direction: column; 
+    }
+    
+    .footer-column {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    
+    .copyright-section {
+        text-align: left; /* Align copyright to the left on mobile */
+    }
+}
